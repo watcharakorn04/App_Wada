@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นักศึกษา - Digital Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header แสดงโปรไฟล์ -->
+        <header class="navbar">
+            <div class="user-badge">
+                <span class="avatar">🎓</span>
+                <div class="user-info">
+                    <h4 id="user-fullname">กำลังโหลดชื่อ...</h4>
+                    <p id="user-dept-nickname">กำลังโหลดแผนก...</p>
+                </div>
+            </div>
+            <button class="btn-small" id="btn-logout" style="background:#ef5350; color:white;">ออกจากระบบ</button>
+        </header>
+
+        <main class="main-content">
+            <!-- การ์ดชั่วโมงสะสม -->
+            <div class="card progress-card">
+                <h4 style="color:#d81b60;">📊 ชั่วโมงฝึกงานสะสม</h4>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="num" id="stat-accumulated">0</div>
+                        <div class="label">ชม. สะสมแล้ว</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="num" id="stat-remaining" style="color:#c62828;">560</div>
+                        <div class="label">ชม. ที่เหลือ</div>
+                    </div>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-fill"></div>
+                </div>
+                <p style="font-size:11px; text-align:right; margin-top:6px; color:#555;" id="progress-percent">0% ความคืบหน้า</p>
+            </div>
+
+            <!-- ปุ่มลงเวลา Check-In / Check-Out -->
+            <div class="card">
+                <h4>⏱️ บันทึกเวลาปฏิบัติงานวันนี้</h4>
+                <p id="clock-display" style="font-size:13px; color:#555; margin:8px 0; font-weight:500;">เวลาปัจจุบัน: --:--:--</p>
+                
+                <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+                    <button class="btn-checkin" id="btn-checkin">🟢 ลงชื่อเข้างาน (Check-In)</button>
+                    <button class="btn-checkout" id="btn-checkout">🔴 ลงชื่อออกงาน (Check-Out)</button>
+                </div>
+            </div>
+
+            <!-- ประวัติการลงเวลา -->
+            <div class="card">
+                <h4>📋 ประวัติการลงเวลาสะสม</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>วันที่ / เวลา</th>
+                            <th>ชั่วโมง</th>
+                            <th>สถานะ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-log-table">
+                        <tr><td colspan="3" style="text-align:center; padding:15px; color:#999;">กำลังโหลดประวัติ...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

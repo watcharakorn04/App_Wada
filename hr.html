@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Oversight Panel - Digital Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container" style="max-width: 900px; margin: 0 auto; padding: 15px;">
+        <!-- Header -->
+        <div style="display:flex; justify-content: space-between; align-items:center; background:#e8f0fe; padding:15px; border-radius:12px; margin-bottom:15px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:30px;">💼</span>
+                <div>
+                    <h2 style="margin:0; color:#1565c0; font-size:18px;">HR Oversight Panel</h2>
+                    <p style="margin:0; font-size:12px; color:#555;">ระบบจัดการและตรวจสอบเวลาฝึกงานนักศึกษาทั้งหมด</p>
+                </div>
+            </div>
+            <button id="btn-logout" style="background:#ef5350; color:white; border:none; padding:8px 16px; border-radius:20px; cursor:pointer; font-weight:bold;">ออกจากระบบ</button>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card" style="padding:20px; background:white; border-radius:12px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                <h3 style="margin:0; color:#333;">📋 รายชื่อและประวัติตรวจสอบนักศึกษาทั้งหมด</h3>
+                <button id="btn-export" style="background:#26a69a; color:white; border:none; padding:8px 16px; border-radius:8px; cursor:pointer; font-weight:bold;">📥 Export เป็นไฟล์ Excel (CSV)</button>
+            </div>
+
+            <!-- Search Box -->
+            <div style="margin-bottom:15px;">
+                <input type="text" id="search-input" placeholder="🔍 ค้นหาด้วยชื่อ, นามสกุล, ชื่อเล่น, อีเมล หรือแผนก..." style="width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; box-sizing:border-box;">
+            </div>
+
+            <!-- Table -->
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; text-align:left; font-size:13px;">
+                    <thead>
+                        <tr style="background:#f5f5f5; border-bottom:2px solid #ddd;">
+                            <th style="padding:10px;">ชื่อ - นามสกุล (ชื่อเล่น) / อีเมล</th>
+                            <th style="padding:10px;">แผนก</th>
+                            <th style="padding:10px;">วันที่ล่าสุด</th>
+                            <th style="padding:10px;">เวลา เข้า-ออก</th>
+                            <th style="padding:10px;">เหตุผล</th>
+                            <th style="padding:10px;">ชั่วโมงสะสมรวม</th>
+                            <th style="padding:10px;">สถานะล่าสุด</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hr-table-body">
+                        <tr>
+                            <td colspan="7" style="text-align:center; padding:20px; color:#999;">กำลังดึงข้อมูลนักศึกษาทุกคนในระบบ...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
